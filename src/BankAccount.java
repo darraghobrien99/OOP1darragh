@@ -4,7 +4,7 @@ public class BankAccount {
 
     private String accnum;
     private double balance;
-    private String name;
+    private Person name;
 
     //mutator
 
@@ -16,9 +16,10 @@ public class BankAccount {
     public void setBalance(double balance) {
 
         this.balance = balance;
+
     }
 
-    public void setName(String name){
+    public void setName(Person name){
 
         this.name = name;
     }
@@ -35,7 +36,7 @@ public class BankAccount {
         return balance;
     }
 
-    public String getName() {
+    public Person getName() {
 
         return name;
     }
@@ -46,10 +47,10 @@ public class BankAccount {
 
         this.accnum = "0";
         this.balance = 0.00;
-        this.name = "unknown";
+        this.name = null;
     }
 
-    public BankAccount(String accnum, double balance, String name) {
+    public BankAccount(String accnum, double balance, Person name) {
 
         setAccnum(accnum);
         setBalance(balance);
@@ -59,7 +60,7 @@ public class BankAccount {
     public String toString() {
 
         return "Account Number: " + getAccnum() +
-                "\nBalance: " + getBalance() +
+                "\nBalance: £" + getBalance() +
                 "\nAccount Holder: " + getName();
     }
 
@@ -68,11 +69,15 @@ public class BankAccount {
         String lodgementAsString;
         double lodgement;
 
+
+
         lodgementAsString = JOptionPane.showInputDialog("How much would you like to lodge:");
 
-    lodgement = Double.parseDouble(lodgementAsString);
+        lodgement = Double.parseDouble(lodgementAsString);
 
-    return balance + lodgement;
+        setBalance(getBalance() + lodgement);
+
+        return getBalance();
     }
 
     public double withdrawMoney(double balance) {
@@ -84,7 +89,9 @@ public class BankAccount {
 
         withdraw = Double.parseDouble(withdrawAsString);
 
-        return balance - withdraw;
+         setBalance(getBalance()-withdraw);
+
+         return getBalance();
     }
 
 }
