@@ -8,10 +8,16 @@ public class BankAccount {
 
     //mutator
 
+    /**
+     *
+      * @param accnum
+     */
+
     public void setAccnum(String accnum) {
 
         this.accnum = accnum;
     }
+
 
     public void setBalance(double balance) {
 
@@ -25,6 +31,11 @@ public class BankAccount {
     }
 
     //Accessor
+
+    /**
+     *
+     * @return the account number
+     */
 
     public String getAccnum() {
 
@@ -59,7 +70,7 @@ public class BankAccount {
 
     public String toString() {
 
-        return "Account Number: " + getAccnum() +
+        return "\nAccount Number: " + getAccnum() +
                 "\nBalance: £" + getBalance() +
                 "\nAccount Holder: " + getName();
     }
@@ -93,5 +104,7 @@ public class BankAccount {
 
          return getBalance();
     }
+
+
 
 }

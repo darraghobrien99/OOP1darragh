@@ -34,17 +34,12 @@ public class MyFlicks {
 
             catalog[i] = newfilm;
 
+
+
         }
 
+        Film.displayFilms(catalog);
 
-
-        for(int j=0; j<catalog.length;j++)
-        {
-
-            JOptionPane.showMessageDialog(null,catalog[j].toString());
-        }
-
-        JOptionPane.showMessageDialog(null,Arrays.toString(catalog));
     }
 
 }

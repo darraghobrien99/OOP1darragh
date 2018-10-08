@@ -10,27 +10,46 @@ public class BankDriver {
         String menu = "1. Withdraw Money " +
                 "\n2. Lodge Money " +
                 "\n3. Exit";
+        String numberAsString;
+        int number;
 
-        BankAccount BA1 = new BankAccount();
+        numberAsString = JOptionPane.showInputDialog("How many bank accounts would you like to create:");
+
+        number = Integer.parseInt(numberAsString);
+
+        BankAccount[] accounts = new BankAccount[number];
         Person accHolder = new Person();
 
-        accnum = JOptionPane.showInputDialog("A/C number:");
 
-        balanceAsString = JOptionPane.showInputDialog("Balance:");
+        for (int i = 0; i < accounts.length; i++) {
 
-        balance = Double.parseDouble(balanceAsString);
+            BankAccount account = new BankAccount();
 
-        accHolder.setName(JOptionPane.showInputDialog("Account holder:")) ;
+            account.setAccnum(JOptionPane.showInputDialog("A/C number:"));
 
-        menu = JOptionPane.showInputDialog(menu);
+            account.setBalance(Integer.parseInt(JOptionPane.showInputDialog("Balance:")));
 
-        BA1.setAccnum(accnum);
-        BA1.setBalance(balance);
-        BA1.setName(accHolder);
+            accHolder.setName(JOptionPane.showInputDialog("Account Holder:"));
 
+            accounts[i] = account;
 
 
-        switch(menu) {
+            //menu = JOptionPane.showInputDialog(menu);
+
+        }
+
+        for (int i = 0; i < accounts.length; i++) {
+
+            JOptionPane.showMessageDialog(null, accounts[i].toString());
+        }
+
+
+        //  BA1.setAccnum(accnum);
+        // BA1.setBalance(balance);
+
+
+
+      /*  switch(menu) {
 
             case "1":
 
@@ -47,12 +66,10 @@ public class BankDriver {
                 break;
         }
 
+*/
 
 
-
-        JOptionPane.showMessageDialog(null, BA1.toString());
-
-
+        // JOptionPane.showMessageDialog(null, BA1.toString());
 
 
     }

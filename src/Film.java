@@ -70,11 +70,24 @@ public class Film {
 
     }
 
-   /* public String displayFilms() {
+    public static void displayFilms(Film[] catalog) {
 
-        JTextArea textArea = new JTextArea();
+        JTextArea textArea = new JTextArea(1,1);
         textArea.setFont(new Font("Serif", Font.ITALIC, 16));
 
+        String displayText = "Number of films: "  ;
 
-    }*/
+
+        for (int i=0; i<catalog.length;i++ ) {
+
+            displayText += "\n\nName : " + catalog[i].getTitle() + "\nDirector: " +
+                    catalog[i].getDirector() + "\nDuration: " + catalog[i].getDuration() + "mins";
+
+
+        }
+
+        textArea.setText(displayText);
+
+        JOptionPane.showMessageDialog(null,textArea, "Catalog", JOptionPane.INFORMATION_MESSAGE);
+    }
 }
